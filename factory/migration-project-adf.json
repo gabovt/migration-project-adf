@@ -1,0 +1,9 @@
+{
+	"name": "migration-project-adf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c9dba28d-eb23-4759-9f1b-038ec73fa0ef",
+		"tenantId": "84f2266d-61ca-432e-aa42-2185b3e62c61"
+	}
+}
