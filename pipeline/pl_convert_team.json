@@ -1,0 +1,156 @@
+{
+	"name": "pl_convert_team",
+	"properties": {
+		"activities": [
+			{
+				"name": "Convert JSON to CSV",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['match_id']"
+								},
+								"sink": {
+									"name": "match_id"
+								}
+							},
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"name": "id",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"path": "$['subtype']"
+								},
+								"sink": {
+									"name": "subtype"
+								}
+							},
+							{
+								"source": {
+									"path": "$['event_incident_typefk']"
+								},
+								"sink": {
+									"name": "event_incident_typefk",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"path": "$['elapsed']"
+								},
+								"sink": {
+									"name": "elapsed",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"path": "$['elapsed_plus']"
+								},
+								"sink": {
+									"name": "elapsed_plus"
+								}
+							},
+							{
+								"source": {
+									"path": "$['del']"
+								},
+								"sink": {
+									"name": "del"
+								}
+							},
+							{
+								"source": {
+									"path": "$['coordinates']"
+								},
+								"sink": {
+									"name": "coordinates"
+								}
+							},
+							{
+								"source": {
+									"path": "$['spectators']"
+								},
+								"sink": {
+									"name": "spectators"
+								}
+							},
+							{
+								"source": {
+									"path": "$['player1']"
+								},
+								"sink": {
+									"name": "player1",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"path": "$['team']"
+								},
+								"sink": {
+									"name": "team",
+									"type": "Int16"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_convert_corner",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_corner",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
