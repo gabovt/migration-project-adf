@@ -1,9 +1,9 @@
 {
-	"name": "pl_convert_corner_change",
+	"name": "pl_convert_card",
 	"properties": {
 		"activities": [
 			{
-				"name": "JSON to CSV",
+				"name": "Card from JSON to CSV",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -18,7 +18,7 @@
 					"source": {
 						"type": "JsonSource",
 						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
+							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
@@ -29,7 +29,7 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
+							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -54,7 +54,8 @@
 									"path": "$['id']"
 								},
 								"sink": {
-									"name": "id"
+									"name": "id",
+									"type": "Int64"
 								}
 							},
 							{
@@ -62,7 +63,8 @@
 									"path": "$['subtype']"
 								},
 								"sink": {
-									"name": "subtype"
+									"name": "subtype",
+									"type": "String"
 								}
 							},
 							{
@@ -70,7 +72,8 @@
 									"path": "$['event_incident_typefk']"
 								},
 								"sink": {
-									"name": "event_incident_typefk"
+									"name": "event_incident_typefk",
+									"type": "Int64"
 								}
 							},
 							{
@@ -78,7 +81,8 @@
 									"path": "$['elapsed']"
 								},
 								"sink": {
-									"name": "elapsed"
+									"name": "elapsed",
+									"type": "Int64"
 								}
 							},
 							{
@@ -101,20 +105,19 @@
 							},
 							{
 								"source": {
-									"path": "$['coordinates']"
+									"path": "$['goal_type']"
 								},
 								"sink": {
-									"name": "coordinates",
+									"name": "goal_type",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['spectators']"
+									"path": "$['card_type']"
 								},
 								"sink": {
-									"name": "spectators",
-									"type": "String"
+									"name": "card_type"
 								}
 							},
 							{
@@ -122,7 +125,8 @@
 									"path": "$['player1']"
 								},
 								"sink": {
-									"name": "player1"
+									"name": "player1",
+									"type": "String"
 								}
 							},
 							{
@@ -130,7 +134,8 @@
 									"path": "$['team']"
 								},
 								"sink": {
-									"name": "team"
+									"name": "team",
+									"type": "Int64"
 								}
 							}
 						]
@@ -138,13 +143,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_corner_raw",
+						"referenceName": "ds_card_raw",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_corner",
+						"referenceName": "ds_card",
 						"type": "DatasetReference"
 					}
 				]

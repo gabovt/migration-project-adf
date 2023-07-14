@@ -1,0 +1,67 @@
+{
+	"name": "ds_cross",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adl_migration",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "sink"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "match_id",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "subtype",
+				"type": "String"
+			},
+			{
+				"name": "event_incident_typefk",
+				"type": "String"
+			},
+			{
+				"name": "elapsed",
+				"type": "String"
+			},
+			{
+				"name": "elapsed_plus",
+				"type": "String"
+			},
+			{
+				"name": "del",
+				"type": "String"
+			},
+			{
+				"name": "goal_type",
+				"type": "String"
+			},
+			{
+				"name": "card_type",
+				"type": "String"
+			},
+			{
+				"name": "player1",
+				"type": "String"
+			},
+			{
+				"name": "team",
+				"type": "String"
+			}
+		]
+	}
+}

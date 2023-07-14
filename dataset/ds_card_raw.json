@@ -1,18 +1,18 @@
 {
-	"name": "ds_corner_raw",
+	"name": "ds_card_raw",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_convert_corner",
+			"referenceName": "ls_adl_migration",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "corner.json",
+				"type": "AzureBlobFSLocation",
+				"fileName": "card.json",
 				"folderPath": "europe",
-				"container": "football-data"
+				"fileSystem": "football-data"
 			}
 		},
 		"schema": {
@@ -39,11 +39,11 @@
 				"del": {
 					"type": "null"
 				},
-				"coordinates": {
+				"goal_type": {
 					"type": "null"
 				},
-				"spectators": {
-					"type": "null"
+				"card_type": {
+					"type": "string"
 				},
 				"player1": {
 					"type": "string"
