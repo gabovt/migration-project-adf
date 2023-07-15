@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "goal.json",
-				"folderPath": "europe",
+				"folderPath": "europe/source/jsons",
 				"fileSystem": "football-data"
 			}
 		},

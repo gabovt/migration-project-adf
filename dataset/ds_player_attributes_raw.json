@@ -1,0 +1,180 @@
+{
+	"name": "ds_player_attributes_raw",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adl_migration",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "player_attributes.json",
+				"folderPath": "europe/source/jsons",
+				"fileSystem": "football-data"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"schema": {
+					"type": "object",
+					"properties": {
+						"fields": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"type": {
+										"type": "string"
+									}
+								}
+							}
+						},
+						"pandas_version": {
+							"type": "string"
+						}
+					}
+				},
+				"data": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "integer"
+							},
+							"player_fifa_api_id": {
+								"type": "integer"
+							},
+							"player_api_id": {
+								"type": "integer"
+							},
+							"date": {
+								"type": "string"
+							},
+							"overall_rating": {
+								"type": "number"
+							},
+							"potential": {
+								"type": "number"
+							},
+							"preferred_foot": {
+								"type": "string"
+							},
+							"attacking_work_rate": {
+								"type": "string"
+							},
+							"defensive_work_rate": {
+								"type": "string"
+							},
+							"crossing": {
+								"type": "number"
+							},
+							"finishing": {
+								"type": "number"
+							},
+							"heading_accuracy": {
+								"type": "number"
+							},
+							"short_passing": {
+								"type": "number"
+							},
+							"volleys": {
+								"type": "number"
+							},
+							"dribbling": {
+								"type": "number"
+							},
+							"curve": {
+								"type": "number"
+							},
+							"free_kick_accuracy": {
+								"type": "number"
+							},
+							"long_passing": {
+								"type": "number"
+							},
+							"ball_control": {
+								"type": "number"
+							},
+							"acceleration": {
+								"type": "number"
+							},
+							"sprint_speed": {
+								"type": "number"
+							},
+							"agility": {
+								"type": "number"
+							},
+							"reactions": {
+								"type": "number"
+							},
+							"balance": {
+								"type": "number"
+							},
+							"shot_power": {
+								"type": "number"
+							},
+							"jumping": {
+								"type": "number"
+							},
+							"stamina": {
+								"type": "number"
+							},
+							"strength": {
+								"type": "number"
+							},
+							"long_shots": {
+								"type": "number"
+							},
+							"aggression": {
+								"type": "number"
+							},
+							"interceptions": {
+								"type": "number"
+							},
+							"positioning": {
+								"type": "number"
+							},
+							"vision": {
+								"type": "number"
+							},
+							"penalties": {
+								"type": "number"
+							},
+							"marking": {
+								"type": "number"
+							},
+							"standing_tackle": {
+								"type": "number"
+							},
+							"sliding_tackle": {
+								"type": "number"
+							},
+							"gk_diving": {
+								"type": "number"
+							},
+							"gk_handling": {
+								"type": "number"
+							},
+							"gk_kicking": {
+								"type": "number"
+							},
+							"gk_positioning": {
+								"type": "number"
+							},
+							"gk_reflexes": {
+								"type": "number"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

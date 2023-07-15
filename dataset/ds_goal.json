@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "sink"
+				"folderPath": "europe/sink",
+				"fileSystem": "football-data"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

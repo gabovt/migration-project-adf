@@ -1,5 +1,5 @@
 {
-	"name": "ds_card_raw",
+	"name": "ds_possession_raw",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adl_migration",
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "card.json",
+				"fileName": "possession.json",
 				"folderPath": "europe/source/jsons",
 				"fileSystem": "football-data"
 			}
@@ -34,22 +34,25 @@
 					"type": "string"
 				},
 				"elapsed_plus": {
-					"type": "null"
+					"type": "string"
 				},
 				"del": {
+					"type": "null"
+				},
+				"homepos": {
+					"type": "string"
+				},
+				"awaypos": {
+					"type": "string"
+				},
+				"injury_time": {
 					"type": "null"
 				},
 				"goal_type": {
 					"type": "null"
 				},
 				"card_type": {
-					"type": "string"
-				},
-				"player1": {
-					"type": "string"
-				},
-				"team": {
-					"type": "string"
+					"type": "null"
 				}
 			}
 		}

@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "cross.json",
-				"folderPath": "europe",
+				"folderPath": "europe/source/jsons",
 				"fileSystem": "football-data"
 			}
 		},
