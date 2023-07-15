@@ -70,15 +70,6 @@
 							},
 							{
 								"source": {
-									"path": "['date']"
-								},
-								"sink": {
-									"name": "date",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
 									"path": "['overall_rating']"
 								},
 								"sink": {
