@@ -1,0 +1,66 @@
+{
+	"name": "ds_foul_raw",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adl_migration",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "foulcommit.json",
+				"folderPath": "europe/source/jsons",
+				"fileSystem": "football-data"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"match_id": {
+					"type": "integer"
+				},
+				"id": {
+					"type": "string"
+				},
+				"subtype": {
+					"type": "string"
+				},
+				"event_incident_typefk": {
+					"type": "string"
+				},
+				"elapsed": {
+					"type": "string"
+				},
+				"elapsed_plus": {
+					"type": "null"
+				},
+				"del": {
+					"type": "null"
+				},
+				"coordinates": {
+					"type": "null"
+				},
+				"injury_time": {
+					"type": "null"
+				},
+				"venue": {
+					"type": "null"
+				},
+				"card_type": {
+					"type": "null"
+				},
+				"player1": {
+					"type": "string"
+				},
+				"player2": {
+					"type": "string"
+				},
+				"team": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

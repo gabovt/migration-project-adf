@@ -1,0 +1,433 @@
+{
+	"name": "pl_convert_player_attributes",
+	"properties": {
+		"activities": [
+			{
+				"name": "Player attributes from JSON to CSV",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "['id']"
+								},
+								"sink": {
+									"name": "id",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['player_fifa_api_id']"
+								},
+								"sink": {
+									"name": "player_fifa_api_id",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['player_api_id']"
+								},
+								"sink": {
+									"name": "player_api_id",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['overall_rating']"
+								},
+								"sink": {
+									"name": "overall_rating",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['potential']"
+								},
+								"sink": {
+									"name": "potential",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['preferred_foot']"
+								},
+								"sink": {
+									"name": "preferred_foot",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['attacking_work_rate']"
+								},
+								"sink": {
+									"name": "attacking_work_rate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['defensive_work_rate']"
+								},
+								"sink": {
+									"name": "defensive_work_rate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['crossing']"
+								},
+								"sink": {
+									"name": "crossing",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['finishing']"
+								},
+								"sink": {
+									"name": "finishing",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['heading_accuracy']"
+								},
+								"sink": {
+									"name": "heading_accuracy",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['short_passing']"
+								},
+								"sink": {
+									"name": "short_passing",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['volleys']"
+								},
+								"sink": {
+									"name": "volleys",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['dribbling']"
+								},
+								"sink": {
+									"name": "dribbling",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['curve']"
+								},
+								"sink": {
+									"name": "curve",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['free_kick_accuracy']"
+								},
+								"sink": {
+									"name": "free_kick_accuracy",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['long_passing']"
+								},
+								"sink": {
+									"name": "long_passing",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['ball_control']"
+								},
+								"sink": {
+									"name": "ball_control",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['acceleration']"
+								},
+								"sink": {
+									"name": "acceleration",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['sprint_speed']"
+								},
+								"sink": {
+									"name": "sprint_speed",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['agility']"
+								},
+								"sink": {
+									"name": "agility",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['reactions']"
+								},
+								"sink": {
+									"name": "reactions",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['balance']"
+								},
+								"sink": {
+									"name": "balance",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['shot_power']"
+								},
+								"sink": {
+									"name": "shot_power",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['jumping']"
+								},
+								"sink": {
+									"name": "jumping",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['stamina']"
+								},
+								"sink": {
+									"name": "stamina",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['strength']"
+								},
+								"sink": {
+									"name": "strength",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['long_shots']"
+								},
+								"sink": {
+									"name": "long_shots",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['aggression']"
+								},
+								"sink": {
+									"name": "aggression",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['interceptions']"
+								},
+								"sink": {
+									"name": "interceptions",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['positioning']"
+								},
+								"sink": {
+									"name": "positioning",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['vision']"
+								},
+								"sink": {
+									"name": "vision",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['penalties']"
+								},
+								"sink": {
+									"name": "penalties",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['marking']"
+								},
+								"sink": {
+									"name": "marking",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['standing_tackle']"
+								},
+								"sink": {
+									"name": "standing_tackle",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['sliding_tackle']"
+								},
+								"sink": {
+									"name": "sliding_tackle",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['gk_diving']"
+								},
+								"sink": {
+									"name": "gk_diving",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['gk_handling']"
+								},
+								"sink": {
+									"name": "gk_handling",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['gk_kicking']"
+								},
+								"sink": {
+									"name": "gk_kicking",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['gk_positioning']"
+								},
+								"sink": {
+									"name": "gk_positioning",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"path": "['gk_reflexes']"
+								},
+								"sink": {
+									"name": "gk_reflexes",
+									"type": "Int64"
+								}
+							}
+						],
+						"collectionReference": "$['data']"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_player_attributes_raw",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_player_attributes",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
