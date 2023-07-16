@@ -1,5 +1,5 @@
 {
-	"name": "pl_convert_corner_change",
+	"name": "pl_convert_corner",
 	"properties": {
 		"activities": [
 			{
@@ -18,7 +18,7 @@
 					"source": {
 						"type": "JsonSource",
 						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
+							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
@@ -29,7 +29,7 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
+							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
