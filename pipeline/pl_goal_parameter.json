@@ -154,7 +154,7 @@
 						"referenceName": "ds_source",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "goal.json"
+							"file_name": "gaol.json"
 						}
 					}
 				],
