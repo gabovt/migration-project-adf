@@ -416,13 +416,16 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_player_attributes_raw",
-						"type": "DatasetReference"
+						"referenceName": "ds_source",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "player_attributes.json"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_player_attributes",
+						"referenceName": "ds_sink",
 						"type": "DatasetReference"
 					}
 				]

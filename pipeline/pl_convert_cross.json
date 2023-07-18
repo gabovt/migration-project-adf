@@ -160,13 +160,16 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_cross_raw",
-						"type": "DatasetReference"
+						"referenceName": "ds_source",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "cross.json"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_cross",
+						"referenceName": "ds_sink",
 						"type": "DatasetReference"
 					}
 				]

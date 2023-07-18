@@ -171,13 +171,16 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_foul_raw",
-						"type": "DatasetReference"
+						"referenceName": "ds_source",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "foulcommit.json"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_foul",
+						"referenceName": "ds_sink",
 						"type": "DatasetReference"
 					}
 				]

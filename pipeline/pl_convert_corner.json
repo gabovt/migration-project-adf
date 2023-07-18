@@ -138,13 +138,16 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_corner_raw",
-						"type": "DatasetReference"
+						"referenceName": "ds_source",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "corner.json"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_corner",
+						"referenceName": "ds_sink",
 						"type": "DatasetReference"
 					}
 				]

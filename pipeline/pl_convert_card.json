@@ -143,13 +143,16 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_card_raw",
-						"type": "DatasetReference"
+						"referenceName": "ds_source",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "card.json"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_card",
+						"referenceName": "ds_sink",
 						"type": "DatasetReference"
 					}
 				]

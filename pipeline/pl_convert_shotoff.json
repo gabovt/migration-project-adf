@@ -152,13 +152,16 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_shotoff_raw",
-						"type": "DatasetReference"
+						"referenceName": "ds_source",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "shotoff.json"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_shotoff",
+						"referenceName": "ds_sink",
 						"type": "DatasetReference"
 					}
 				]
