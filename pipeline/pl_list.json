@@ -1,5 +1,5 @@
 {
-	"name": "pl_goal_parameter",
+	"name": "pl_list",
 	"properties": {
 		"activities": [
 			{
@@ -19,7 +19,7 @@
 						"type": "JsonSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
+							"fileListPath": "football-data/europe/source/jsons/files to copy.txt",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -151,16 +151,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_source",
-						"type": "DatasetReference",
-						"parameters": {
-							"file_name": "goal.json"
-						}
+						"referenceName": "ds_source_list",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_sink",
+						"referenceName": "ds_sink_list",
 						"type": "DatasetReference"
 					}
 				]
