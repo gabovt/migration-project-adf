@@ -158,6 +158,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "JSON to CSV"
+		},
 		"annotations": []
 	}
 }
