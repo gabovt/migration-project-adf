@@ -70,7 +70,7 @@
 									"parameters": {
 										"p_folder_name": "europe/sink",
 										"p_file_name": {
-											"value": "@concat('sql_',toLower(item()),'csv')",
+											"value": "@concat('mysql_',toLower(item()),'.csv')",
 											"type": "Expression"
 										}
 									}
