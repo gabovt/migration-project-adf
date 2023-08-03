@@ -1,5 +1,5 @@
 {
-	"name": "pl_list",
+	"name": "pl_json_list",
 	"properties": {
 		"activities": [
 			{
@@ -19,7 +19,7 @@
 						"type": "JsonSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"fileListPath": "football-data/europe/source/jsons/files to copy.txt",
+							"fileListPath": "football-data/europe/source/jsons",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -164,7 +164,7 @@
 			}
 		],
 		"folder": {
-			"name": "JSON to CSV"
+			"name": "Bronze Ingestion"
 		},
 		"annotations": []
 	}

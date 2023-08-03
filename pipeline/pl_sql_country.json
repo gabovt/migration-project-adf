@@ -81,7 +81,7 @@
 			}
 		],
 		"folder": {
-			"name": "SQL Database"
+			"name": "Bronze Ingestion"
 		},
 		"annotations": []
 	}
