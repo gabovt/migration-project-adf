@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Player attributes from JSON to CSV",
+				"name": "Player Attributes from JSON to CSV",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -425,7 +425,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_sink",
+						"referenceName": "ds_sink_folder",
 						"type": "DatasetReference",
 						"parameters": {
 							"p_folder_name": "europe/sink"

@@ -1,0 +1,38 @@
+{
+	"name": "ds_sink_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adl_migration",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_folder_name": {
+				"type": "string"
+			},
+			"p_file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().p_file_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().p_folder_name",
+					"type": "Expression"
+				},
+				"fileSystem": "football-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
