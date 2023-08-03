@@ -150,18 +150,27 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_possession_raw",
-						"type": "DatasetReference"
+						"referenceName": "ds_source",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "possession.json"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_possession",
-						"type": "DatasetReference"
+						"referenceName": "ds_sink",
+						"type": "DatasetReference",
+						"parameters": {
+							"p_folder_name": "europe/sink"
+						}
 					}
 				]
 			}
 		],
+		"folder": {
+			"name": "JSON to CSV"
+		},
 		"annotations": []
 	}
 }

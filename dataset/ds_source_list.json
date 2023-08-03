@@ -1,5 +1,5 @@
 {
-	"name": "ds_corner_raw",
+	"name": "ds_source_list",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adl_migration",
@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "corner.json",
 				"folderPath": "europe/source/jsons",
 				"fileSystem": "football-data"
 			}
@@ -39,11 +38,11 @@
 				"del": {
 					"type": "null"
 				},
-				"coordinates": {
+				"goal_type": {
 					"type": "null"
 				},
-				"spectators": {
-					"type": "null"
+				"card_type": {
+					"type": "string"
 				},
 				"player1": {
 					"type": "string"

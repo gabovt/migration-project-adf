@@ -1,9 +1,9 @@
 {
-	"name": "pl_convert_card",
+	"name": "pl_mysql_player",
 	"properties": {
 		"activities": [
 			{
-				"name": "Card from JSON to CSV",
+				"name": "Player from MySQL to CSV",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -16,15 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "JsonSource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "JsonReadSettings"
-						}
+						"type": "MySqlSource"
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
@@ -43,110 +35,95 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['match_id']"
-								},
-								"sink": {
-									"name": "match_id"
-								}
-							},
-							{
-								"source": {
-									"path": "$['id']"
+									"name": "id",
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "id",
-									"type": "Int64"
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['subtype']"
+									"name": "player_api_id",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "subtype",
+									"name": "player_api_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "player_name",
 									"type": "String"
+								},
+								"sink": {
+									"name": "player_name",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['event_incident_typefk']"
+									"name": "player_fifa_api_id",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "event_incident_typefk",
-									"type": "Int64"
+									"name": "player_fifa_api_id",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['elapsed']"
+									"name": "player_birthday",
+									"type": "DateTime"
 								},
 								"sink": {
-									"name": "elapsed",
-									"type": "Int64"
+									"name": "player_birthday",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['elapsed_plus']"
+									"name": "player_height",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "elapsed_plus",
-									"type": "String"
+									"name": "player_height",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['del']"
+									"name": "player_weight",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "del",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['goal_type']"
-								},
-								"sink": {
-									"name": "goal_type",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['card_type']"
-								},
-								"sink": {
-									"name": "card_type"
-								}
-							},
-							{
-								"source": {
-									"path": "$['player1']"
-								},
-								"sink": {
-									"name": "player1",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['team']"
-								},
-								"sink": {
-									"name": "team",
-									"type": "Int64"
+									"name": "player_weight",
+									"type": "String",
+									"physicalType": "String"
 								}
 							}
-						]
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_source",
+						"referenceName": "ds_sql_source",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "card.json"
+							"Table": "Player"
 						}
 					}
 				],
@@ -162,7 +139,7 @@
 			}
 		],
 		"folder": {
-			"name": "JSON to CSV"
+			"name": "Bronze Ingestion"
 		},
 		"annotations": []
 	}

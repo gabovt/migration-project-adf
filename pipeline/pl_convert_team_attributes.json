@@ -263,18 +263,27 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_team_attributes_raw",
-						"type": "DatasetReference"
+						"referenceName": "ds_source",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "team_attributes.json"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_team_attributes",
-						"type": "DatasetReference"
+						"referenceName": "ds_sink",
+						"type": "DatasetReference",
+						"parameters": {
+							"p_folder_name": "europe/sink"
+						}
 					}
 				]
 			}
 		],
+		"folder": {
+			"name": "Bronze Ingestion"
+		},
 		"annotations": []
 	}
 }
