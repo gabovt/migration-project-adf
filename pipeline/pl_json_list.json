@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup CSVs",
+				"name": "Lookup JSONs",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "MySqlSource",
-						"query": "SELECT * FROM Table_Of_Tables tot \r\nWHERE source_name LIKE '%csv%';\r\n"
+						"query": "SELECT * FROM Table_Of_Tables tot \nWHERE source_name LIKE '%json%';\n"
 					},
 					"dataset": {
 						"referenceName": "ds_mysql_source",
@@ -34,7 +34,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Lookup CSVs",
+						"activity": "Lookup JSONs",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -43,7 +43,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup CSVs').output.value",
+						"value": "@activity('Lookup JSONs').output.value",
 						"type": "Expression"
 					},
 					"activities": [
@@ -90,16 +90,27 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "ds_json_folder",
-									"type": "DatasetReference"
+									"referenceName": "ds_json_file",
+									"type": "DatasetReference",
+									"parameters": {
+										"p_folder_name": "europe/source/jsons",
+										"p_file_name": {
+											"value": "@item().source_name",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "ds_csv_folder",
+									"referenceName": "ds_csv_file",
 									"type": "DatasetReference",
 									"parameters": {
-										"p_folder_name": "europe/sink"
+										"p_folder_name": "europe/test",
+										"p_file_name": {
+											"value": "@item().sink_name",
+											"type": "Expression"
+										}
 									}
 								}
 							]

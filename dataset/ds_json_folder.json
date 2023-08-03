@@ -5,52 +5,24 @@
 			"referenceName": "ls_adl_migration",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"p_folder_name": {
+				"type": "string",
+				"defaultValue": "europe/source/jsons"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "europe/source/jsons",
+				"folderPath": {
+					"value": "@dataset().p_folder_name",
+					"type": "Expression"
+				},
 				"fileSystem": "football-data"
 			}
 		},
-		"schema": {
-			"type": "object",
-			"properties": {
-				"match_id": {
-					"type": "integer"
-				},
-				"id": {
-					"type": "string"
-				},
-				"subtype": {
-					"type": "string"
-				},
-				"event_incident_typefk": {
-					"type": "string"
-				},
-				"elapsed": {
-					"type": "string"
-				},
-				"elapsed_plus": {
-					"type": "null"
-				},
-				"del": {
-					"type": "null"
-				},
-				"goal_type": {
-					"type": "null"
-				},
-				"card_type": {
-					"type": "string"
-				},
-				"player1": {
-					"type": "string"
-				},
-				"team": {
-					"type": "string"
-				}
-			}
-		}
+		"schema": {}
 	}
 }
