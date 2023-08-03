@@ -19,7 +19,7 @@
 						"type": "JsonSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"fileListPath": "football-data/europe/source/jsons",
+							"fileListPath": "football-data/europe/source/jsons/files to copy.txt",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -40,112 +40,6 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"path": "$['match_id']"
-								},
-								"sink": {
-									"name": "match_id"
-								}
-							},
-							{
-								"source": {
-									"path": "$['id']"
-								},
-								"sink": {
-									"name": "id",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['subtype']"
-								},
-								"sink": {
-									"name": "subtype"
-								}
-							},
-							{
-								"source": {
-									"path": "$['event_incident_typefk']"
-								},
-								"sink": {
-									"name": "event_incident_typefk"
-								}
-							},
-							{
-								"source": {
-									"path": "$['elapsed']"
-								},
-								"sink": {
-									"name": "elapsed"
-								}
-							},
-							{
-								"source": {
-									"path": "$['elapsed_plus']"
-								},
-								"sink": {
-									"name": "elapsed_plus",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['del']"
-								},
-								"sink": {
-									"name": "del",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['goal_type']"
-								},
-								"sink": {
-									"name": "goal_type",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['coordinates']"
-								},
-								"sink": {
-									"name": "coordinates",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['player1']"
-								},
-								"sink": {
-									"name": "player1",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['player2']"
-								},
-								"sink": {
-									"name": "player2",
-									"type": "Int64"
-								}
-							},
-							{
-								"source": {
-									"path": "$['team']"
-								},
-								"sink": {
-									"name": "team",
-									"type": "Int64"
-								}
-							}
-						],
 						"mapComplexValuesToString": false
 					}
 				},
@@ -157,8 +51,11 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_sink_list",
-						"type": "DatasetReference"
+						"referenceName": "ds_sink",
+						"type": "DatasetReference",
+						"parameters": {
+							"p_folder_name": "europe/sink"
+						}
 					}
 				]
 			}

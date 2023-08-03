@@ -1,5 +1,5 @@
 {
-	"name": "pl_sql_match",
+	"name": "pl_mysql_match",
 	"properties": {
 		"activities": [
 			{
@@ -911,7 +911,10 @@
 				"outputs": [
 					{
 						"referenceName": "ds_sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"p_folder_name": "europe/sink"
+						}
 					}
 				]
 			}

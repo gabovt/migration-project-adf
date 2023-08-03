@@ -1,5 +1,5 @@
 {
-	"name": "pl_sql_country",
+	"name": "pl_mysql_country",
 	"properties": {
 		"activities": [
 			{
@@ -75,7 +75,10 @@
 				"outputs": [
 					{
 						"referenceName": "ds_sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"p_folder_name": "europe/sink"
+						}
 					}
 				]
 			}

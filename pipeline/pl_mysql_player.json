@@ -1,5 +1,5 @@
 {
-	"name": "pl_sql_player",
+	"name": "pl_mysql_player",
 	"properties": {
 		"activities": [
 			{
@@ -130,7 +130,10 @@
 				"outputs": [
 					{
 						"referenceName": "ds_sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"p_folder_name": "europe/sink"
+						}
 					}
 				]
 			}
