@@ -266,7 +266,8 @@
 						"referenceName": "ds_json_file",
 						"type": "DatasetReference",
 						"parameters": {
-							"p_folder_name": "team_attributes.json"
+							"p_folder_name": "europe/source/jsons",
+							"p_file_name": "team_attributes.json"
 						}
 					}
 				],
