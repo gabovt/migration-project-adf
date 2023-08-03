@@ -3,11 +3,11 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "CSV source to CSV sink",
-				"type": "Copy",
+				"name": "Lookup CSVs",
+				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
-					"timeout": "7.00:00:00",
+					"timeout": "0.12:00:00",
 					"retry": 0,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
@@ -16,55 +16,111 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"fileListPath": "football-data/europe/source/csvs/csv_to_copy.txt",
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
+						"type": "MySqlSource",
+						"query": "SELECT * FROM Table_Of_Tables tot \r\nWHERE source_name LIKE '%csv%';\r\n"
 					},
-					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".csv"
-						}
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_sink_folder",
+					"dataset": {
+						"referenceName": "ds_mysql_source",
 						"type": "DatasetReference",
 						"parameters": {
-							"p_folder_name": "europe/source/csvs"
+							"p_table_name": "Table_Of_Tables"
 						}
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "For Each Source",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup CSVs",
+						"dependencyConditions": [
+							"Succeeded"
+						]
 					}
 				],
-				"outputs": [
-					{
-						"referenceName": "ds_sink_folder",
-						"type": "DatasetReference",
-						"parameters": {
-							"p_folder_name": "europe/sink"
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup CSVs').output.value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "CSV source to CSV sink",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "DelimitedTextSource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									},
+									"formatSettings": {
+										"type": "DelimitedTextReadSettings"
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".csv"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "ds_csv_file",
+									"type": "DatasetReference",
+									"parameters": {
+										"p_folder_name": "europe/source/csvs",
+										"p_file_name": {
+											"value": "@item().source_name",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ds_csv_file",
+									"type": "DatasetReference",
+									"parameters": {
+										"p_folder_name": "europe/test",
+										"p_file_name": {
+											"value": "@item().sink_name",
+											"type": "Expression"
+										}
+									}
+								}
+							]
 						}
-					}
-				]
+					]
+				}
 			}
 		],
 		"folder": {

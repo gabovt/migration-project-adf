@@ -1,5 +1,5 @@
 {
-	"name": "ds_sink_file",
+	"name": "ds_csv_file",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adl_migration",

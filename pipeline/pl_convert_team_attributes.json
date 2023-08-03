@@ -263,16 +263,16 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_source",
+						"referenceName": "ds_json_file",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "team_attributes.json"
+							"p_folder_name": "team_attributes.json"
 						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_sink_folder",
+						"referenceName": "ds_csv_folder",
 						"type": "DatasetReference",
 						"parameters": {
 							"p_folder_name": "europe/sink"

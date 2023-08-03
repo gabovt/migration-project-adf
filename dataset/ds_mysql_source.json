@@ -1,12 +1,12 @@
 {
-	"name": "ds_sql_source",
+	"name": "ds_mysql_source",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_sql",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"Table": {
+			"p_table_name": {
 				"type": "string"
 			}
 		},
@@ -15,7 +15,7 @@
 		"schema": [],
 		"typeProperties": {
 			"tableName": {
-				"value": "@dataset().Table",
+				"value": "@dataset().p_table_name",
 				"type": "Expression"
 			}
 		}

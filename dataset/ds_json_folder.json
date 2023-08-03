@@ -1,5 +1,5 @@
 {
-	"name": "ds_source_list",
+	"name": "ds_json_folder",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adl_migration",
