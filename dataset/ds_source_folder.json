@@ -10,7 +10,8 @@
 				"type": "string"
 			},
 			"p_folder_name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "europe/source/jsons"
 			}
 		},
 		"annotations": [],
@@ -19,10 +20,13 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().file_name",
+					"value": "@dataset().p_file_name",
 					"type": "Expression"
 				},
-				"folderPath": "europe/source/jsons",
+				"folderPath": {
+					"value": "@dataset().p_folder_name",
+					"type": "Expression"
+				},
 				"fileSystem": "football-data"
 			}
 		},

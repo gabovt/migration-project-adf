@@ -416,19 +416,21 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_source",
+						"referenceName": "ds_source_folder",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "player_attributes.json"
+							"p_file_name": "player_attributes.json",
+							"p_folder_name": "europe/source/jsons"
 						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_sink",
+						"referenceName": "ds_sink_folder",
 						"type": "DatasetReference",
 						"parameters": {
-							"p_folder_name": "europe/sink"
+							"p_folder_name": "europe/sink",
+							"p_file_name": "player_attributes"
 						}
 					}
 				]
